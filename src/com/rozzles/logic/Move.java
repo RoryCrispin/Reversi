@@ -1,5 +1,6 @@
 package com.rozzles.logic;
 
+import com.rozzles.Reversi;
 import com.rozzles.board.Board;
 
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.ArrayList;
  */
 public class Move {
     private Board board;
-    public Move(Board board){
-        this.board = board;
+    public Move(){
+        this.board = Reversi.board;
     }
     public void makeMove(int x, int y, boolean blackTurn){
 
@@ -23,7 +24,7 @@ public class Move {
     }
 
     public int getCapturesFromMove(int x, int y, boolean blackTurn, boolean doMakeMove){
-        SearchObject so = new SearchObject(board);
+        SearchObject so = new SearchObject();
         so.populateSearch(x,y);
         Search search = new Search(blackTurn);
         int captures  = search.getCaptures(so);

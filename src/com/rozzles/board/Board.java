@@ -55,7 +55,7 @@ public class Board {
 
     }
     private void newTurn(){
-        IndexCaptures ic = new IndexCaptures(this, blackTurn);
+        IndexCaptures ic = new IndexCaptures();
         ic.createIndex();
         if (!ic.areThereCaptures()) {
             if(skippedLastTurn) endGame();
@@ -86,7 +86,7 @@ public class Board {
     }
 
     public void tileClicked(int x, int y, boolean blackBoard){
-        Move move = new Move(this);
+        Move move = new Move();
         if(blackBoard == blackTurn) move.makeMove(x,y, blackTurn);
     }
     public boolean isBlackTurn(){
@@ -105,9 +105,9 @@ public class Board {
     }
     public void makeAIMove(boolean blackPlayer){
         if (blackPlayer == blackTurn) {
-            IndexCaptures ic = new IndexCaptures(this, blackPlayer);
+            IndexCaptures ic = new IndexCaptures();
             PointXY p = ic.getNextMove();
-            Move m = new Move(this);
+            Move m = new Move();
             m.makeMove(p.getX(), p.getY(), blackPlayer);
         }
     }

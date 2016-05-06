@@ -1,5 +1,6 @@
 package com.rozzles.view;
 
+import com.rozzles.Reversi;
 import com.rozzles.board.Board;
 
 import javax.swing.*;
@@ -14,9 +15,9 @@ public class Window {
     private JLabel label;
 
 
-    public Window(Board board, boolean blackWindow){
+    public Window(boolean blackWindow){
         this.blackWindow = blackWindow;
-        this.board = board;
+        this.board = Reversi.board;
     }
     ReversiTile tiles[];
     public void displayView() {
@@ -43,8 +44,7 @@ public class Window {
             for (int y = 0; y<8; y++){
                 for (int x=0;x<8; x++){
                     p++;
-                    tiles[p] = new ReversiTile(board, x,y, blackWindow);
-                    //tiles[p].setState(0);
+                    tiles[p] = new ReversiTile(x,y, blackWindow);
                     gd.add(tiles[p]);
                 }
             }
@@ -52,8 +52,7 @@ public class Window {
             for (int y = 7; y>=0; y--){
                 for (int x=7;x>=0; x--){
                     p++;
-                    tiles[p] = new ReversiTile(board, x,y, blackWindow);
-                    //tiles[p].setState(0);
+                    tiles[p] = new ReversiTile(x,y, blackWindow);
                     gd.add(tiles[p]);
                 }
             }

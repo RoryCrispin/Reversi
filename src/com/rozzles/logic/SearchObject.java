@@ -1,5 +1,6 @@
 package com.rozzles.logic;
 
+import com.rozzles.Reversi;
 import com.rozzles.board.Board;
 
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ public class SearchObject extends Board {
     private PointList backslash;
     private Board board;
 
-    public SearchObject(Board board){
-        this.board = board;
+    public SearchObject(){
+        this.board = Reversi.board;
     }
 
     public void populateSearch(int x, int y){

@@ -1,6 +1,7 @@
 package com.rozzles.view;
 
 
+import com.rozzles.Reversi;
 import com.rozzles.board.Board;
 
 import javax.imageio.ImageIO;
@@ -23,12 +24,12 @@ public class ReversiTile extends ColorButton implements MouseListener{
     private boolean blackBoard;
 
 
-    public ReversiTile(Board board, int x, int y, boolean blackBoard){
+    public ReversiTile(int x, int y, boolean blackBoard){
         super(50,50, Color.GREEN);
 
         this.blackBoard = blackBoard;
         addMouseListener(this);
-         this.board = board;
+         this.board = Reversi.board;
         this.x = x; this.y=y;
         try {
             image[0] = ImageIO.read(new FileInputStream("res/white.png") );
